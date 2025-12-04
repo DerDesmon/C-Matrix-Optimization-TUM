@@ -19,7 +19,11 @@ all: release
 release: $(MAIN_RELEASE_EXEC)
 
 run: $(MAIN_RELEASE_EXEC)
-	./$<
+	@if [ ! -f ../samples/input_A.ellpack ] || [ ! -f ../samples/input_B.ellpack ]; then \
+		printf "Samples missing. Run scripts/sanity.sh or provide -a/-b paths.\n"; \
+		exit 1; \
+	fi
+	./$< -a ../samples/input_A.ellpack -b ../samples/input_B.ellpack -o ../gen/matrix.txt -V 1
 
 $(MAIN_RELEASE_EXEC): $(RELEASE_SRC) | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -o $@ $(RELEASE_SRC)
@@ -30,6 +34,7 @@ $(BUILD_DIR):
 clean:
 	rm -rf $(BUILD_DIR)
 
-.PHONY: all clean release run
+.PHONY: all clean release run format
 
-.PHONY: all clean generate-test clean-generators
+format:
+	clang-format -i src/*.c src/*.h include/*.c include/*.h || true

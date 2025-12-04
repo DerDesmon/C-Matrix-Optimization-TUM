@@ -45,12 +45,18 @@ This targets only the core sources (`src/*`, `include/ellpack.c`) and keeps opti
 	```
 - Run multiplication:
 	```bash
-	./bin/main_release -a input_A.ellpack -b input_B.ellpack -o result.out -V 1
+	./bin/main_release -a ../samples/input_A.ellpack -b ../samples/input_B.ellpack -o ../gen/result.out -V 1
 	```
 - Benchmark repetitions (optional):
 	```bash
-	./bin/main_release -a input_A.ellpack -b input_B.ellpack -o result.out -V 1 -B 50
+	./bin/main_release -a ../samples/input_A.ellpack -b ../samples/input_B.ellpack -o ../gen/result.out -V 1 -B 50
 	```
+- Sanity run:
+	```bash
+	./scripts/sanity.sh
+	```
+	Writes output to `gen/sanity_result.txt` and prints a success line.
+
 
 CLI flags:
 - `-a` path to matrix A (ELLPACK)
