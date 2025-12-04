@@ -37,6 +37,28 @@ make release
 
 This targets only the core sources (`src/*`, `include/ellpack.c`) and keeps optional benchmarking without the `dev/*` dependencies.
 
+## Quick Start
+- Build:
+	```bash
+	cd Implementierung
+	make        # builds bin/main_release
+	```
+- Run multiplication:
+	```bash
+	./bin/main_release -a input_A.ellpack -b input_B.ellpack -o result.out -V 1
+	```
+- Benchmark repetitions (optional):
+	```bash
+	./bin/main_release -a input_A.ellpack -b input_B.ellpack -o result.out -V 1 -B 50
+	```
+
+CLI flags:
+- `-a` path to matrix A (ELLPACK)
+- `-b` path to matrix B (ELLPACK)
+- `-o` output path (default: `gen/matrix.txt`)
+- `-V` version: `0=auto`, `1=SIMD`, `2=no SIMD`, `3=unsorted`
+- `-B` repetitions for benchmarking (e.g., `-B` or `-B5`)
+
 ## Run
 The CLI reads two matrices, multiplies them, and optionally writes the result.
 
