@@ -1,10 +1,3 @@
-# Simple 3x3 ELLPACK (column-major)
-# Columns: each line lists (row_index,value) pairs for the column
-# nr_rows=3 nr_cols=3 nr_ellpack_elts=2
-# col 0
-0 1.0
-2 2.0
-# col 1
-1 3.0
-# col 2
-0 4.0
+3,3,1
+1.0,3.0,4.0
+0,1,0

@@ -10,8 +10,6 @@
 #include "matmul.h"
 #include "benchmark.h"
 #include "matmul_caller.h"
-#include "../dev/test.h"
-#include "../dev/benchmark_dev.h"
 
 
 #define OPTSTRING "V:B::a:b:o:htp"
